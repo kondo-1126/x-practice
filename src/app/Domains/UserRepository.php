@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domains\User\Repositories;
+namespace App\Domains;
 
-use App\Domains\User\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 
 class UserRepository

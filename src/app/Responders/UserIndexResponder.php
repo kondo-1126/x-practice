@@ -2,17 +2,31 @@
 
 namespace App\Responders;
 
-use Illuminate\Contracts\View\View;
+use Illuminate\Http\Response;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 
 class UserIndexResponder
 {
-    /**
-     * ビューにデータを渡す
-     *
-     * @return View
-     */
-    public function respond($users): View
+    protected $response;
+    protected $view;
+
+    public function __construct(Response $response, ViewFactory $view)
     {
-        return view('user.index', compact('users'));
+        $this->response = $response;
+        $this->view     = $view;
+    }
+
+    /**
+     *
+     * @return Response
+     */
+    public function response($users): Response
+    {
+
+        $this->response->setContent(
+            $this->view->make('user.index', ['users' => $users])
+        );
+
+        return $this->response;
     }
 }

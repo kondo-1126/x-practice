@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Actions\UserIndexAction;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//ユーザーページ用
-Route::get('/user/index', [UserController::class, 'index'])->name('user.index');
+//ユーザー一覧を表示
+Route::get('/user', UserIndexAction::class);
 
 require __DIR__.'/auth.php';
