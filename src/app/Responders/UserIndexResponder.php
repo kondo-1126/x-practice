@@ -10,6 +10,11 @@ class UserIndexResponder
     protected $response;
     protected $view;
 
+    /**
+     * コンストラクタ
+     * @param ViewFactory
+     * @param Response
+     */
     public function __construct(Response $response, ViewFactory $view)
     {
         $this->response = $response;
@@ -17,7 +22,7 @@ class UserIndexResponder
     }
 
     /**
-     *
+     * @param Collection $users
      * @return Response
      */
     public function response($users): Response

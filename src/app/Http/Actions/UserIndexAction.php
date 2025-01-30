@@ -2,42 +2,37 @@
 
 namespace App\Http\Actions;
 
-use App\Domains\UserRepository AS Domain;
-use App\Responders\UserIndexResponder AS Responder;
+use App\Domains\UserDomain;
+use App\Responders\UserIndexResponder;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 
 class UserIndexAction extends Controller
 {
-    /**
-     * レスポンダーのインスタンス化
-     *
-     * @var Domain
-     * @var Responder
-     */
-    protected $Domain;
-    protected $Responder;
+    protected  $domain;
+    protected  $responder;
 
     /**
-     * クラスをインスタンス化する
+     * インスタンス化する
      *
-     * @param Domain $Domain
-     * @param Responder $Responder
+     * @param UserDomain $domain
+     * @param UserIndexResponder $responder
      */
-    public function __construct(Domain $Domain, Responder $Responder)
+    public function __construct(UserDomain $domain, UserIndexResponder $responder)
     {
-        $this->Domain = $Domain;
-        $this->Responder = $Responder;
+        $this->domain = $domain;
+        $this->responder = $responder;
     }
 
     /**
+     * ユーザー一覧を取得してレスポンスを返す
      *
-     *  @return Response
+     * @return Response
      */
     public function __invoke(): Response
     {
-        return $this->Responder->response(
-            $this->Domain->getAllUsers()
+        return $this->responder->response(
+            $this->domain->getAllUsers()
         );
     }
 }
