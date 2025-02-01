@@ -20,15 +20,15 @@ class PostRepository
     /**
      * 投稿を保存する
      *
-     * @param array $data
+     * @param array $postData
      * @return Post
      */
-    public function storePost(array $data): post
+    public function storePost(array $postData): post
     {
         return Post::create([
             'user_id' => auth()->id(),
-            'title' => $data['title'],
-            'body' => $data['body'],
+            'title' => $postData['title'],
+            'content' => $postData['content'],
         ]);
     }
 }

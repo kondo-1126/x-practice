@@ -25,7 +25,7 @@
             <tr>
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->title }}</td>
-                <td>{{ Str::limit($post->body, 50) }}</td>
+                <td>{{ Str::limit($post->content, 50) }}</td>
                 <td>{{ $post->created_at->format('Y-m-d H:i') }}</td>
                 <td>
                     <a href="#" class="btn btn-sm btn-primary">編集</a>

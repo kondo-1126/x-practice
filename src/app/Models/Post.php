@@ -11,6 +11,17 @@ class Post extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<string>
+     */
+    protected $fillable = [
+        'user_id',
+        'title',
+        'content',
+    ];
+
+    /**
      * ユーザーと投稿のリレーション (n:1)
      *
      * @return BelongsTo
@@ -19,15 +30,4 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-        /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<string>
-     */
-    protected $fillable = [
-        'user_id',
-        'title',
-        'body',
-    ];
 }

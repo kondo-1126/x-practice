@@ -33,11 +33,11 @@ class PostDomain
     /**
      * 投稿を作成する
      *
-     * @param array $data
+     * @param array $postData
      * @return Post
      */
-    public function storePost(array $data): Post
+    public function storePost(array $postData): Post
     {
-        return $this->postRepository->storePost($data);
+        return $this->postRepository->storePost($postData);
     }
 }

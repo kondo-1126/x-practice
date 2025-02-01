@@ -16,9 +16,9 @@
         </div>
 
         <div class="mb-3">
-            <label for="body" class="form-label">本文</label>
-            <textarea class="form-control @error('body') is-invalid @enderror" id="body" name="body" rows="5" required>{{ old('body') }}</textarea>
-            @error('body')
+            <label for="content" class="form-label">本文</label>
+            <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="5" required>{{ old('content') }}</textarea>
+            @error('content')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>

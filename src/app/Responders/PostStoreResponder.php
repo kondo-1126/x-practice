@@ -9,7 +9,7 @@ class PostStoreResponder
     /**
      * 投稿完了後,リダイレクト
      */
-    public function response($post): RedirectResponse
+    public function response($postData): RedirectResponse
     {
         return redirect()
             ->route('posts.index')
