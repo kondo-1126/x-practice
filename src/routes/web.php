@@ -2,7 +2,10 @@
 
 use App\Http\Actions\PostIndexAction;
 use App\Http\Actions\PostCreateAction;
+use App\Http\Actions\PostEditAction;
 use App\Http\Actions\PostStoreAction;
+use App\Http\Actions\PostUpdateAction;
+use App\Http\Actions\PostDeleteAction;
 use App\Http\Actions\UserIndexAction;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -41,6 +44,13 @@ Route::get('/posts', PostIndexAction::class)->name('posts.index');
 Route::get('/posts/registration', PostCreateAction::class)->name('posts.create');
 //投稿する
 Route::post('/posts', PostStoreAction::class)->name('posts.store');
+//投稿編集画面を表示
+Route::get('/posts/{post}/edit', PostEditAction::class)->name('posts.edit');
+//投稿を編集する
+Route::put('/posts/{post}', PostUpdateAction::class)->name('posts.update');
+//投稿を削除する
+Route::delete('/posts/{id}', PostDeleteAction::class)->name('posts.destroy');
+
 
 
 require __DIR__.'/auth.php';
