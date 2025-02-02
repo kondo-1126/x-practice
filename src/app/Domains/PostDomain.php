@@ -64,7 +64,7 @@ class PostDomain
      */
     public function updatePost(int $postId, array $postData): bool
     {
-        return $this->postRepository->update($postId, $postData);
+        return $this->postRepository->updatePost($postId, $postData);
     }
 
     /**
@@ -75,6 +75,6 @@ class PostDomain
      */
     public function deletePost(int $postId): void
     {
-        $this->postRepository->delete($postId);
+        $this->postRepository->deletePost($postId);
     }
 }

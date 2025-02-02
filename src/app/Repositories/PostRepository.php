@@ -50,7 +50,7 @@ class PostRepository
      * @param array $postData
      * @return bool
      */
-    public function update(int $postId, array $postData): bool
+    public function updatePost(int $postId, array $postData): bool
     {
         $post = $this->findById($postId);
         return $post->update($postData);
@@ -62,7 +62,7 @@ class PostRepository
      * @param int $postId
      * @return void
      */
-    public function delete(int $postId): void
+    public function deletePost(int $postId): void
     {
         Post::destroy($postId);
     }
